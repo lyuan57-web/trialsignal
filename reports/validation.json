@@ -1,0 +1,5766 @@
+{
+  "generated_at": "2026-10-29T19:19:35.446407+00:00",
+  "overview": {
+    "totals": {
+      "trials": 11509,
+      "sponsors": 3218,
+      "active_trials": 2952,
+      "adverse_outcomes": 1702
+    },
+    "status_counts": {
+      "COMPLETED": 4990,
+      "UNKNOWN": 1747,
+      "RECRUITING": 1654,
+      "TERMINATED": 1225,
+      "ACTIVE_NOT_RECRUITING": 734,
+      "NOT_YET_RECRUITING": 564,
+      "WITHDRAWN": 429,
+      "ENROLLING_BY_INVITATION": 65,
+      "SUSPENDED": 48,
+      "NO_LONGER_AVAILABLE": 29,
+      "AVAILABLE": 13,
+      "APPROVED_FOR_MARKETING": 10,
+      "TEMPORARILY_NOT_AVAILABLE": 1
+    },
+    "top_sponsors": [
+      {
+        "sponsor": "National Cancer Institute (NCI)",
+        "trial_count": 408
+      },
+      {
+        "sponsor": "M.D. Anderson Cancer Center",
+        "trial_count": 262
+      },
+      {
+        "sponsor": "Memorial Sloan Kettering Cancer Center",
+        "trial_count": 176
+      },
+      {
+        "sponsor": "Sun Yat-sen University",
+        "trial_count": 123
+      },
+      {
+        "sponsor": "Novartis Pharmaceuticals",
+        "trial_count": 108
+      },
+      {
+        "sponsor": "Fudan University",
+        "trial_count": 96
+      },
+      {
+        "sponsor": "Mayo Clinic",
+        "trial_count": 92
+      },
+      {
+        "sponsor": "AstraZeneca",
+        "trial_count": 86
+      },
+      {
+        "sponsor": "Hoffmann-La Roche",
+        "trial_count": 86
+      },
+      {
+        "sponsor": "Pfizer",
+        "trial_count": 86
+      }
+    ]
+  },
+  "lineage": {
+    "completed_runs": 13,
+    "query_memberships": 13000
+  },
+  "data_quality": {
+    "checks": [
+      {
+        "name": "missing_title",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Every study needs a title."
+      },
+      {
+        "name": "unknown_sponsor",
+        "severity": "warning",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Lead sponsor should be present."
+      },
+      {
+        "name": "missing_status",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Status is required."
+      },
+      {
+        "name": "negative_enrollment",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Enrollment cannot be negative."
+      },
+      {
+        "name": "missing_condition",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Every analytical trial needs a condition."
+      },
+      {
+        "name": "missing_snapshot",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Every current row must be traceable to raw data."
+      },
+      {
+        "name": "orphan_condition_link",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Condition links must satisfy referential integrity."
+      },
+      {
+        "name": "completed_without_completion_date",
+        "severity": "warning",
+        "failed_rows": 248,
+        "passed": false,
+        "description": "Completed studies should generally report completion date."
+      },
+      {
+        "name": "start_after_completion",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Start must not follow completion."
+      },
+      {
+        "name": "interventional_without_intervention",
+        "severity": "warning",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Interventional studies generally identify an intervention."
+      },
+      {
+        "name": "terminated_without_reason",
+        "severity": "warning",
+        "failed_rows": 123,
+        "passed": false,
+        "description": "Terminated studies should be reviewed for a reason."
+      },
+      {
+        "name": "duplicate_snapshot_hash",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Identical snapshots must be deduplicated."
+      },
+      {
+        "name": "unfinished_ingestion_run",
+        "severity": "warning",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "A run left in progress may indicate an interrupted pipeline."
+      },
+      {
+        "name": "completed_run_count_mismatch",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Completed-run counts must reconcile to lineage membership."
+      },
+      {
+        "name": "study_without_ingestion_lineage",
+        "severity": "warning",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "Every production study should be attributable to at least one ingestion run."
+      },
+      {
+        "name": "foreign_key_integrity",
+        "severity": "error",
+        "failed_rows": 0,
+        "passed": true,
+        "description": "All foreign keys must resolve."
+      }
+    ],
+    "total": 16,
+    "passed": 14,
+    "errors": 0,
+    "warnings": 2
+  },
+  "entity_resolution_seed_evaluation": {
+    "labeled_pairs": 21,
+    "accepted": 20,
+    "correct": 20,
+    "precision_on_accepted": 1.0,
+    "coverage": 0.9523809523809523
+  },
+  "risk_model": {
+    "eligible_trials": 6642,
+    "train_trials": 5313,
+    "test_trials": 1329,
+    "train_adverse_rate": 0.2230378317334839,
+    "test_adverse_rate": 0.37020316027088035,
+    "roc_auc": 0.8710527338248294,
+    "average_precision": 0.8349147468064347,
+    "brier_score": 0.18109484393861924,
+    "prevalence_baseline_brier": 0.2548104143198531,
+    "train_through": "2019-05-28",
+    "test_from": "2019-05-29",
+    "calibration_bins": [
+      {
+        "bin": 1,
+        "n": 265,
+        "mean_predicted": 0.14834120561301947,
+        "observed_rate": 0.04905660377358491
+      },
+      {
+        "bin": 2,
+        "n": 266,
+        "mean_predicted": 0.37332991653839154,
+        "observed_rate": 0.12781954887218044
+      },
+      {
+        "bin": 3,
+        "n": 266,
+        "mean_predicted": 0.561743876343241,
+        "observed_rate": 0.2631578947368421
+      },
+      {
+        "bin": 4,
+        "n": 266,
+        "mean_predicted": 0.7609272760064664,
+        "observed_rate": 0.5150375939849624
+      },
+      {
+        "bin": 5,
+        "n": 266,
+        "mean_predicted": 0.9377176190636531,
+        "observed_rate": 0.8947368421052632
+      }
+    ],
+    "cohort_metrics": {
+      "breast cancer": {
+        "n": 123,
+        "adverse_rate": 0.3089430894308943,
+        "roc_auc": 0.9030959752321981,
+        "average_precision": 0.8746814898913667,
+        "brier_score": 0.14079487839671823
+      },
+      "colorectal cancer": {
+        "n": 131,
+        "adverse_rate": 0.2366412213740458,
+        "roc_auc": 0.8448387096774194,
+        "average_precision": 0.7452973768922039,
+        "brier_score": 0.17362933257391963
+      },
+      "glioblastoma": {
+        "n": 101,
+        "adverse_rate": 0.49504950495049505,
+        "roc_auc": 0.88,
+        "average_precision": 0.8904412277390472,
+        "brier_score": 0.19679101369231533
+      },
+      "hepatocellular carcinoma": {
+        "n": 93,
+        "adverse_rate": 0.3655913978494624,
+        "roc_auc": 0.8898305084745762,
+        "average_precision": 0.8589992261447426,
+        "brier_score": 0.19281933437439858
+      },
+      "leukemia": {
+        "n": 110,
+        "adverse_rate": 0.44545454545454544,
+        "roc_auc": 0.9176982268317163,
+        "average_precision": 0.9080159945768196,
+        "brier_score": 0.15259934069294442
+      },
+      "lymphoma": {
+        "n": 117,
+        "adverse_rate": 0.4017094017094017,
+        "roc_auc": 0.8957446808510638,
+        "average_precision": 0.8654329434507849,
+        "brier_score": 0.17548648384474944
+      },
+      "melanoma": {
+        "n": 139,
+        "adverse_rate": 0.48201438848920863,
+        "roc_auc": 0.7788142620232172,
+        "average_precision": 0.793205588562964,
+        "brier_score": 0.2109376411366518
+      },
+      "multiple myeloma": {
+        "n": 103,
+        "adverse_rate": 0.4077669902912621,
+        "roc_auc": 0.8469945355191257,
+        "average_precision": 0.830529652977497,
+        "brier_score": 0.18400828080899084
+      },
+      "non-small cell lung cancer": {
+        "n": 104,
+        "adverse_rate": 0.33653846153846156,
+        "roc_auc": 0.8360248447204968,
+        "average_precision": 0.7731942174702511,
+        "brier_score": 0.19422427704500683
+      },
+      "ovarian cancer": {
+        "n": 138,
+        "adverse_rate": 0.2971014492753623,
+        "roc_auc": 0.8566758863464924,
+        "average_precision": 0.7916598035133647,
+        "brier_score": 0.17592506822516998
+      },
+      "pancreatic cancer": {
+        "n": 120,
+        "adverse_rate": 0.4,
+        "roc_auc": 0.8874421296296297,
+        "average_precision": 0.8620091128240284,
+        "brier_score": 0.16626941779938326
+      },
+      "prostate cancer": {
+        "n": 127,
+        "adverse_rate": 0.33070866141732286,
+        "roc_auc": 0.8593837535014006,
+        "average_precision": 0.7837382411775778,
+        "brier_score": 0.18446403108555826
+      },
+      "renal cell carcinoma": {
+        "n": 131,
+        "adverse_rate": 0.4198473282442748,
+        "roc_auc": 0.7830143540669856,
+        "average_precision": 0.7738524200245952,
+        "brier_score": 0.21807939036862006
+      }
+    }
+  },
+  "phase3_duration_benchmark": {
+    "cohort": {
+      "phase": "PHASE3",
+      "sponsor_class": "ALL"
+    },
+    "as_of": "2026-10-29",
+    "trials": 934,
+    "events": 508,
+    "censored": 426,
+    "median_months_to_study_end": 84.47,
+    "probability_still_ongoing": {
+      "12_months": 0.9824,
+      "24_months": 0.9219,
+      "36_months": 0.8595,
+      "60_months": 0.6746
+    },
+    "excluded": {
+      "final_without_completion_date": 37,
+      "invalid_or_future_start": 7
+    },
+    "curve": [
+      {
+        "month": 0.0,
+        "survival": 1.0,
+        "at_risk": 934,
+        "events": 0,
+        "censored": 0
+      },
+      {
+        "month": 0.0,
+        "survival": 0.998929,
+        "at_risk": 934,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 0.07,
+        "survival": 0.997859,
+        "at_risk": 933,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 0.26,
+        "survival": 0.997859,
+        "at_risk": 932,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 0.39,
+        "survival": 0.997859,
+        "at_risk": 931,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 0.46,
+        "survival": 0.997859,
+        "at_risk": 930,
+        "events": 0,
+        "censored": 3
+      },
+      {
+        "month": 0.66,
+        "survival": 0.997859,
+        "at_risk": 927,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 0.92,
+        "survival": 0.997859,
+        "at_risk": 926,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 0.95,
+        "survival": 0.997859,
+        "at_risk": 925,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 1.35,
+        "survival": 0.997859,
+        "at_risk": 924,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 1.45,
+        "survival": 0.997859,
+        "at_risk": 923,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 1.64,
+        "survival": 0.997859,
+        "at_risk": 922,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 1.68,
+        "survival": 0.997859,
+        "at_risk": 921,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 1.94,
+        "survival": 0.997859,
+        "at_risk": 920,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 2.0,
+        "survival": 0.996773,
+        "at_risk": 919,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 2.04,
+        "survival": 0.996773,
+        "at_risk": 918,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 2.46,
+        "survival": 0.996773,
+        "at_risk": 917,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 3.02,
+        "survival": 0.995685,
+        "at_risk": 916,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 3.19,
+        "survival": 0.995685,
+        "at_risk": 915,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 4.04,
+        "survival": 0.994595,
+        "at_risk": 914,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 4.14,
+        "survival": 0.994595,
+        "at_risk": 913,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 4.47,
+        "survival": 0.994595,
+        "at_risk": 912,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 4.7,
+        "survival": 0.994595,
+        "at_risk": 911,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 4.8,
+        "survival": 0.994595,
+        "at_risk": 910,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 4.83,
+        "survival": 0.994595,
+        "at_risk": 909,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 4.93,
+        "survival": 0.994595,
+        "at_risk": 908,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 4.96,
+        "survival": 0.994595,
+        "at_risk": 906,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 5.03,
+        "survival": 0.993496,
+        "at_risk": 905,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 5.26,
+        "survival": 0.993496,
+        "at_risk": 904,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 5.39,
+        "survival": 0.993496,
+        "at_risk": 902,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 6.41,
+        "survival": 0.993496,
+        "at_risk": 901,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 6.57,
+        "survival": 0.992392,
+        "at_risk": 900,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 6.67,
+        "survival": 0.991289,
+        "at_risk": 899,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 6.97,
+        "survival": 0.989081,
+        "at_risk": 898,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 7.16,
+        "survival": 0.989081,
+        "at_risk": 896,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 7.33,
+        "survival": 0.989081,
+        "at_risk": 895,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 7.82,
+        "survival": 0.989081,
+        "at_risk": 894,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 7.95,
+        "survival": 0.989081,
+        "at_risk": 893,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 8.34,
+        "survival": 0.989081,
+        "at_risk": 892,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 8.41,
+        "survival": 0.989081,
+        "at_risk": 891,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 8.51,
+        "survival": 0.987969,
+        "at_risk": 890,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 8.71,
+        "survival": 0.986858,
+        "at_risk": 889,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 8.87,
+        "survival": 0.986858,
+        "at_risk": 888,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 8.9,
+        "survival": 0.986858,
+        "at_risk": 887,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 9.43,
+        "survival": 0.986858,
+        "at_risk": 886,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 9.76,
+        "survival": 0.985743,
+        "at_risk": 885,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 9.99,
+        "survival": 0.984628,
+        "at_risk": 884,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 10.18,
+        "survival": 0.984628,
+        "at_risk": 883,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 10.32,
+        "survival": 0.984628,
+        "at_risk": 882,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 10.38,
+        "survival": 0.984628,
+        "at_risk": 881,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 10.61,
+        "survival": 0.984628,
+        "at_risk": 880,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 10.91,
+        "survival": 0.984628,
+        "at_risk": 879,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 11.01,
+        "survival": 0.984628,
+        "at_risk": 878,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 11.07,
+        "survival": 0.984628,
+        "at_risk": 877,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 11.3,
+        "survival": 0.984628,
+        "at_risk": 876,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 11.47,
+        "survival": 0.984628,
+        "at_risk": 875,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 11.53,
+        "survival": 0.984628,
+        "at_risk": 873,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 11.6,
+        "survival": 0.984628,
+        "at_risk": 872,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 11.76,
+        "survival": 0.983497,
+        "at_risk": 871,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 11.93,
+        "survival": 0.983497,
+        "at_risk": 870,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 11.99,
+        "survival": 0.982366,
+        "at_risk": 869,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 12.19,
+        "survival": 0.980102,
+        "at_risk": 868,
+        "events": 2,
+        "censored": 1
+      },
+      {
+        "month": 12.68,
+        "survival": 0.978969,
+        "at_risk": 865,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 12.75,
+        "survival": 0.977836,
+        "at_risk": 864,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 12.91,
+        "survival": 0.977836,
+        "at_risk": 863,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 13.01,
+        "survival": 0.975565,
+        "at_risk": 861,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 13.11,
+        "survival": 0.975565,
+        "at_risk": 859,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 13.17,
+        "survival": 0.975565,
+        "at_risk": 858,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 13.34,
+        "survival": 0.975565,
+        "at_risk": 857,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 13.57,
+        "survival": 0.974425,
+        "at_risk": 856,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 13.86,
+        "survival": 0.974425,
+        "at_risk": 855,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 14.0,
+        "survival": 0.973284,
+        "at_risk": 854,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 14.03,
+        "survival": 0.972143,
+        "at_risk": 853,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 14.23,
+        "survival": 0.971002,
+        "at_risk": 852,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 14.26,
+        "survival": 0.971002,
+        "at_risk": 851,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 14.36,
+        "survival": 0.96986,
+        "at_risk": 850,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 14.55,
+        "survival": 0.96986,
+        "at_risk": 849,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 14.75,
+        "survival": 0.96986,
+        "at_risk": 848,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 14.98,
+        "survival": 0.968715,
+        "at_risk": 847,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 15.01,
+        "survival": 0.967569,
+        "at_risk": 846,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 15.05,
+        "survival": 0.966424,
+        "at_risk": 845,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 15.28,
+        "survival": 0.966424,
+        "at_risk": 844,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 15.38,
+        "survival": 0.966424,
+        "at_risk": 843,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 15.41,
+        "survival": 0.966424,
+        "at_risk": 842,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 15.64,
+        "survival": 0.965275,
+        "at_risk": 841,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 16.03,
+        "survival": 0.964125,
+        "at_risk": 839,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 16.13,
+        "survival": 0.962974,
+        "at_risk": 838,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 16.92,
+        "survival": 0.962974,
+        "at_risk": 837,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 16.99,
+        "survival": 0.961821,
+        "at_risk": 835,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 17.25,
+        "survival": 0.961821,
+        "at_risk": 834,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 17.71,
+        "survival": 0.960666,
+        "at_risk": 833,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 17.77,
+        "survival": 0.960666,
+        "at_risk": 832,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 17.94,
+        "survival": 0.95951,
+        "at_risk": 831,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 17.97,
+        "survival": 0.958353,
+        "at_risk": 829,
+        "events": 1,
+        "censored": 2
+      },
+      {
+        "month": 18.07,
+        "survival": 0.957193,
+        "at_risk": 826,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 18.23,
+        "survival": 0.957193,
+        "at_risk": 825,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 18.6,
+        "survival": 0.957193,
+        "at_risk": 824,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 18.66,
+        "survival": 0.95603,
+        "at_risk": 823,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 18.92,
+        "survival": 0.95603,
+        "at_risk": 822,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 18.99,
+        "survival": 0.954865,
+        "at_risk": 821,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 19.06,
+        "survival": 0.952533,
+        "at_risk": 819,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 19.12,
+        "survival": 0.951367,
+        "at_risk": 817,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 19.29,
+        "survival": 0.950202,
+        "at_risk": 816,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 19.42,
+        "survival": 0.950202,
+        "at_risk": 815,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 19.48,
+        "survival": 0.950202,
+        "at_risk": 814,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 19.58,
+        "survival": 0.950202,
+        "at_risk": 813,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 19.78,
+        "survival": 0.949031,
+        "at_risk": 812,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 19.84,
+        "survival": 0.949031,
+        "at_risk": 811,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 19.91,
+        "survival": 0.94786,
+        "at_risk": 810,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 19.94,
+        "survival": 0.946688,
+        "at_risk": 809,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 19.98,
+        "survival": 0.945516,
+        "at_risk": 808,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 20.8,
+        "survival": 0.945516,
+        "at_risk": 807,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 20.86,
+        "survival": 0.945516,
+        "at_risk": 806,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 20.96,
+        "survival": 0.944342,
+        "at_risk": 805,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 20.99,
+        "survival": 0.943167,
+        "at_risk": 804,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 21.42,
+        "survival": 0.943167,
+        "at_risk": 803,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 21.45,
+        "survival": 0.943167,
+        "at_risk": 802,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 21.68,
+        "survival": 0.94199,
+        "at_risk": 801,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 21.82,
+        "survival": 0.940812,
+        "at_risk": 800,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 21.88,
+        "survival": 0.940812,
+        "at_risk": 799,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 21.95,
+        "survival": 0.940812,
+        "at_risk": 798,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 21.98,
+        "survival": 0.937271,
+        "at_risk": 797,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 22.11,
+        "survival": 0.936091,
+        "at_risk": 794,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 22.31,
+        "survival": 0.93491,
+        "at_risk": 793,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 22.44,
+        "survival": 0.93491,
+        "at_risk": 792,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 22.51,
+        "survival": 0.93491,
+        "at_risk": 791,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 22.54,
+        "survival": 0.933727,
+        "at_risk": 790,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 22.93,
+        "survival": 0.933727,
+        "at_risk": 789,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 22.97,
+        "survival": 0.932542,
+        "at_risk": 788,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 23.0,
+        "survival": 0.926617,
+        "at_risk": 787,
+        "events": 5,
+        "censored": 1
+      },
+      {
+        "month": 23.1,
+        "survival": 0.925431,
+        "at_risk": 781,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 23.23,
+        "survival": 0.925431,
+        "at_risk": 780,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 23.98,
+        "survival": 0.921867,
+        "at_risk": 779,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 24.02,
+        "survival": 0.920679,
+        "at_risk": 776,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 24.18,
+        "survival": 0.920679,
+        "at_risk": 775,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 24.71,
+        "survival": 0.919489,
+        "at_risk": 774,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 24.94,
+        "survival": 0.9183,
+        "at_risk": 773,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 25.0,
+        "survival": 0.91711,
+        "at_risk": 772,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 25.03,
+        "survival": 0.915921,
+        "at_risk": 771,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 25.07,
+        "survival": 0.915921,
+        "at_risk": 770,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 25.13,
+        "survival": 0.91473,
+        "at_risk": 769,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 25.17,
+        "survival": 0.91473,
+        "at_risk": 768,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 25.33,
+        "survival": 0.91473,
+        "at_risk": 767,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 25.79,
+        "survival": 0.91473,
+        "at_risk": 766,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 25.86,
+        "survival": 0.913534,
+        "at_risk": 765,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 25.99,
+        "survival": 0.912338,
+        "at_risk": 764,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 26.02,
+        "survival": 0.909947,
+        "at_risk": 763,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 26.12,
+        "survival": 0.908751,
+        "at_risk": 761,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 26.18,
+        "survival": 0.908751,
+        "at_risk": 760,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 26.71,
+        "survival": 0.906356,
+        "at_risk": 759,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 26.91,
+        "survival": 0.906356,
+        "at_risk": 757,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 26.97,
+        "survival": 0.903956,
+        "at_risk": 755,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 27.01,
+        "survival": 0.902755,
+        "at_risk": 753,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 27.27,
+        "survival": 0.901555,
+        "at_risk": 752,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 27.3,
+        "survival": 0.901555,
+        "at_risk": 751,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 27.33,
+        "survival": 0.900353,
+        "at_risk": 750,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 27.6,
+        "survival": 0.900353,
+        "at_risk": 749,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 27.86,
+        "survival": 0.900353,
+        "at_risk": 748,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 27.93,
+        "survival": 0.900353,
+        "at_risk": 747,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 27.99,
+        "survival": 0.899146,
+        "at_risk": 746,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 28.52,
+        "survival": 0.899146,
+        "at_risk": 745,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 28.71,
+        "survival": 0.899146,
+        "at_risk": 744,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 28.91,
+        "survival": 0.899146,
+        "at_risk": 743,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 28.98,
+        "survival": 0.899146,
+        "at_risk": 742,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 29.24,
+        "survival": 0.899146,
+        "at_risk": 741,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 29.47,
+        "survival": 0.899146,
+        "at_risk": 740,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 29.5,
+        "survival": 0.899146,
+        "at_risk": 739,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 29.73,
+        "survival": 0.899146,
+        "at_risk": 738,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 29.9,
+        "survival": 0.899146,
+        "at_risk": 737,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 29.93,
+        "survival": 0.897924,
+        "at_risk": 736,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 29.96,
+        "survival": 0.896702,
+        "at_risk": 735,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 30.0,
+        "survival": 0.895481,
+        "at_risk": 734,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 30.52,
+        "survival": 0.894259,
+        "at_risk": 733,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 30.62,
+        "survival": 0.894259,
+        "at_risk": 732,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 30.65,
+        "survival": 0.893036,
+        "at_risk": 731,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 30.69,
+        "survival": 0.893036,
+        "at_risk": 729,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 30.78,
+        "survival": 0.893036,
+        "at_risk": 728,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 30.88,
+        "survival": 0.893036,
+        "at_risk": 727,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 30.92,
+        "survival": 0.893036,
+        "at_risk": 726,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 30.98,
+        "survival": 0.891804,
+        "at_risk": 725,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 31.57,
+        "survival": 0.891804,
+        "at_risk": 724,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 32.0,
+        "survival": 0.89057,
+        "at_risk": 723,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 32.16,
+        "survival": 0.889337,
+        "at_risk": 722,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 32.26,
+        "survival": 0.888103,
+        "at_risk": 721,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 32.3,
+        "survival": 0.88687,
+        "at_risk": 720,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 32.62,
+        "survival": 0.885636,
+        "at_risk": 719,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 32.76,
+        "survival": 0.885636,
+        "at_risk": 718,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 32.85,
+        "survival": 0.884401,
+        "at_risk": 717,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 32.99,
+        "survival": 0.881931,
+        "at_risk": 716,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 33.45,
+        "survival": 0.880696,
+        "at_risk": 714,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 33.48,
+        "survival": 0.879459,
+        "at_risk": 712,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 33.58,
+        "survival": 0.878222,
+        "at_risk": 711,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 33.68,
+        "survival": 0.876985,
+        "at_risk": 710,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 33.94,
+        "survival": 0.875748,
+        "at_risk": 709,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 33.97,
+        "survival": 0.873271,
+        "at_risk": 707,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 34.0,
+        "survival": 0.870793,
+        "at_risk": 705,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 34.07,
+        "survival": 0.870793,
+        "at_risk": 703,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 34.37,
+        "survival": 0.870793,
+        "at_risk": 701,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 34.4,
+        "survival": 0.869549,
+        "at_risk": 700,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 34.46,
+        "survival": 0.869549,
+        "at_risk": 699,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 34.5,
+        "survival": 0.869549,
+        "at_risk": 697,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 34.76,
+        "survival": 0.869549,
+        "at_risk": 695,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 34.86,
+        "survival": 0.868296,
+        "at_risk": 694,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 34.92,
+        "survival": 0.868296,
+        "at_risk": 693,
+        "events": 0,
+        "censored": 3
+      },
+      {
+        "month": 34.96,
+        "survival": 0.867038,
+        "at_risk": 690,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 34.99,
+        "survival": 0.865779,
+        "at_risk": 689,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 35.02,
+        "survival": 0.864521,
+        "at_risk": 688,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 35.32,
+        "survival": 0.863263,
+        "at_risk": 687,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 35.45,
+        "survival": 0.862004,
+        "at_risk": 686,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 35.65,
+        "survival": 0.860746,
+        "at_risk": 685,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 35.88,
+        "survival": 0.860746,
+        "at_risk": 684,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 35.91,
+        "survival": 0.860746,
+        "at_risk": 683,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 35.98,
+        "survival": 0.859484,
+        "at_risk": 682,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 36.01,
+        "survival": 0.849387,
+        "at_risk": 681,
+        "events": 8,
+        "censored": 0
+      },
+      {
+        "month": 36.04,
+        "survival": 0.848125,
+        "at_risk": 673,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 36.07,
+        "survival": 0.846863,
+        "at_risk": 672,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 36.34,
+        "survival": 0.846863,
+        "at_risk": 671,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 36.37,
+        "survival": 0.845599,
+        "at_risk": 670,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 36.44,
+        "survival": 0.844335,
+        "at_risk": 669,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 36.93,
+        "survival": 0.843071,
+        "at_risk": 668,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 36.99,
+        "survival": 0.841807,
+        "at_risk": 667,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 37.03,
+        "survival": 0.840543,
+        "at_risk": 666,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 37.36,
+        "survival": 0.840543,
+        "at_risk": 665,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 37.49,
+        "survival": 0.838011,
+        "at_risk": 664,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 37.55,
+        "survival": 0.838011,
+        "at_risk": 662,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 37.91,
+        "survival": 0.838011,
+        "at_risk": 661,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 37.95,
+        "survival": 0.838011,
+        "at_risk": 659,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 38.01,
+        "survival": 0.835464,
+        "at_risk": 658,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 38.14,
+        "survival": 0.835464,
+        "at_risk": 656,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 38.18,
+        "survival": 0.835464,
+        "at_risk": 655,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 38.31,
+        "survival": 0.835464,
+        "at_risk": 654,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 38.44,
+        "survival": 0.834185,
+        "at_risk": 653,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 38.7,
+        "survival": 0.834185,
+        "at_risk": 652,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 38.9,
+        "survival": 0.832903,
+        "at_risk": 651,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 38.93,
+        "survival": 0.832903,
+        "at_risk": 650,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 39.0,
+        "survival": 0.83162,
+        "at_risk": 649,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 39.03,
+        "survival": 0.825203,
+        "at_risk": 648,
+        "events": 5,
+        "censored": 0
+      },
+      {
+        "month": 39.16,
+        "survival": 0.825203,
+        "at_risk": 643,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 39.23,
+        "survival": 0.823918,
+        "at_risk": 642,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 39.46,
+        "survival": 0.822632,
+        "at_risk": 641,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 39.59,
+        "survival": 0.822632,
+        "at_risk": 640,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 39.92,
+        "survival": 0.821345,
+        "at_risk": 639,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 39.95,
+        "survival": 0.820058,
+        "at_risk": 638,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 39.98,
+        "survival": 0.81877,
+        "at_risk": 637,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 40.05,
+        "survival": 0.817483,
+        "at_risk": 636,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 40.54,
+        "survival": 0.817483,
+        "at_risk": 635,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 40.64,
+        "survival": 0.817483,
+        "at_risk": 634,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 40.8,
+        "survival": 0.817483,
+        "at_risk": 633,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 40.94,
+        "survival": 0.816189,
+        "at_risk": 632,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 40.97,
+        "survival": 0.814896,
+        "at_risk": 631,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 41.0,
+        "survival": 0.812305,
+        "at_risk": 629,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 41.03,
+        "survival": 0.807123,
+        "at_risk": 627,
+        "events": 4,
+        "censored": 0
+      },
+      {
+        "month": 41.95,
+        "survival": 0.804532,
+        "at_risk": 623,
+        "events": 2,
+        "censored": 1
+      },
+      {
+        "month": 41.99,
+        "survival": 0.803234,
+        "at_risk": 620,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 42.05,
+        "survival": 0.801936,
+        "at_risk": 619,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 42.18,
+        "survival": 0.801936,
+        "at_risk": 618,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 42.35,
+        "survival": 0.801936,
+        "at_risk": 617,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 42.51,
+        "survival": 0.800634,
+        "at_risk": 616,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 42.55,
+        "survival": 0.800634,
+        "at_risk": 615,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 42.97,
+        "survival": 0.799331,
+        "at_risk": 614,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 43.04,
+        "survival": 0.796718,
+        "at_risk": 612,
+        "events": 2,
+        "censored": 1
+      },
+      {
+        "month": 43.07,
+        "survival": 0.79541,
+        "at_risk": 609,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 43.5,
+        "survival": 0.79541,
+        "at_risk": 608,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 43.99,
+        "survival": 0.791472,
+        "at_risk": 606,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 44.02,
+        "survival": 0.79016,
+        "at_risk": 603,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 44.06,
+        "survival": 0.788847,
+        "at_risk": 602,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 44.71,
+        "survival": 0.787535,
+        "at_risk": 601,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 44.98,
+        "survival": 0.783597,
+        "at_risk": 600,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 45.01,
+        "survival": 0.782284,
+        "at_risk": 597,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 45.04,
+        "survival": 0.778347,
+        "at_risk": 596,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 45.57,
+        "survival": 0.778347,
+        "at_risk": 593,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 45.77,
+        "survival": 0.777032,
+        "at_risk": 592,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 45.93,
+        "survival": 0.777032,
+        "at_risk": 591,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 46.0,
+        "survival": 0.773081,
+        "at_risk": 590,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 46.03,
+        "survival": 0.771764,
+        "at_risk": 587,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 46.09,
+        "survival": 0.771764,
+        "at_risk": 586,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 46.29,
+        "survival": 0.770445,
+        "at_risk": 585,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 46.32,
+        "survival": 0.769126,
+        "at_risk": 584,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 46.55,
+        "survival": 0.769126,
+        "at_risk": 583,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 46.92,
+        "survival": 0.769126,
+        "at_risk": 582,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 46.95,
+        "survival": 0.769126,
+        "at_risk": 581,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 47.01,
+        "survival": 0.763821,
+        "at_risk": 580,
+        "events": 4,
+        "censored": 0
+      },
+      {
+        "month": 47.08,
+        "survival": 0.762495,
+        "at_risk": 576,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 47.47,
+        "survival": 0.761169,
+        "at_risk": 575,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 47.57,
+        "survival": 0.759843,
+        "at_risk": 574,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 47.61,
+        "survival": 0.759843,
+        "at_risk": 572,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 47.87,
+        "survival": 0.759843,
+        "at_risk": 571,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 48.0,
+        "survival": 0.754511,
+        "at_risk": 570,
+        "events": 4,
+        "censored": 0
+      },
+      {
+        "month": 48.1,
+        "survival": 0.753178,
+        "at_risk": 566,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 48.56,
+        "survival": 0.753178,
+        "at_risk": 565,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 48.59,
+        "survival": 0.75184,
+        "at_risk": 563,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 48.69,
+        "survival": 0.75184,
+        "at_risk": 562,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 48.72,
+        "survival": 0.7505,
+        "at_risk": 561,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 48.79,
+        "survival": 0.74916,
+        "at_risk": 560,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 48.89,
+        "survival": 0.74916,
+        "at_risk": 559,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 48.99,
+        "survival": 0.74647,
+        "at_risk": 557,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 49.54,
+        "survival": 0.745125,
+        "at_risk": 555,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 49.68,
+        "survival": 0.745125,
+        "at_risk": 554,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 49.71,
+        "survival": 0.743777,
+        "at_risk": 553,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 49.91,
+        "survival": 0.74243,
+        "at_risk": 552,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 50.0,
+        "survival": 0.739735,
+        "at_risk": 551,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 50.6,
+        "survival": 0.738387,
+        "at_risk": 549,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 50.66,
+        "survival": 0.738387,
+        "at_risk": 548,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 50.86,
+        "survival": 0.738387,
+        "at_risk": 547,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 50.92,
+        "survival": 0.738387,
+        "at_risk": 546,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 50.96,
+        "survival": 0.737033,
+        "at_risk": 545,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 50.99,
+        "survival": 0.735678,
+        "at_risk": 544,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 51.02,
+        "survival": 0.732968,
+        "at_risk": 543,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 51.78,
+        "survival": 0.732968,
+        "at_risk": 541,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 51.81,
+        "survival": 0.731611,
+        "at_risk": 540,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 51.94,
+        "survival": 0.731611,
+        "at_risk": 539,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 52.01,
+        "survival": 0.728891,
+        "at_risk": 538,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 52.04,
+        "survival": 0.724811,
+        "at_risk": 536,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 52.21,
+        "survival": 0.724811,
+        "at_risk": 533,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 52.47,
+        "survival": 0.724811,
+        "at_risk": 531,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 52.5,
+        "survival": 0.723444,
+        "at_risk": 530,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 52.57,
+        "survival": 0.722076,
+        "at_risk": 529,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 52.73,
+        "survival": 0.722076,
+        "at_risk": 528,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 52.76,
+        "survival": 0.720706,
+        "at_risk": 527,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 52.93,
+        "survival": 0.719336,
+        "at_risk": 526,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 53.03,
+        "survival": 0.715225,
+        "at_risk": 525,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 53.06,
+        "survival": 0.715225,
+        "at_risk": 522,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 53.91,
+        "survival": 0.715225,
+        "at_risk": 521,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 53.95,
+        "survival": 0.71385,
+        "at_risk": 520,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 53.98,
+        "survival": 0.712475,
+        "at_risk": 519,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 54.01,
+        "survival": 0.709724,
+        "at_risk": 518,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 54.05,
+        "survival": 0.708348,
+        "at_risk": 516,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 54.08,
+        "survival": 0.708348,
+        "at_risk": 515,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 54.14,
+        "survival": 0.708348,
+        "at_risk": 514,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 54.34,
+        "survival": 0.708348,
+        "at_risk": 513,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 54.7,
+        "survival": 0.708348,
+        "at_risk": 512,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 54.74,
+        "survival": 0.706962,
+        "at_risk": 511,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 54.97,
+        "survival": 0.70419,
+        "at_risk": 510,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 55.0,
+        "survival": 0.70419,
+        "at_risk": 508,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 55.06,
+        "survival": 0.70419,
+        "at_risk": 507,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 55.1,
+        "survival": 0.702798,
+        "at_risk": 506,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 55.26,
+        "survival": 0.701406,
+        "at_risk": 505,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 55.52,
+        "survival": 0.701406,
+        "at_risk": 504,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 55.66,
+        "survival": 0.700012,
+        "at_risk": 503,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 55.69,
+        "survival": 0.698617,
+        "at_risk": 502,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 55.95,
+        "survival": 0.697223,
+        "at_risk": 501,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 56.05,
+        "survival": 0.694434,
+        "at_risk": 500,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 56.21,
+        "survival": 0.694434,
+        "at_risk": 498,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 56.31,
+        "survival": 0.693037,
+        "at_risk": 497,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 56.57,
+        "survival": 0.693037,
+        "at_risk": 496,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 56.67,
+        "survival": 0.693037,
+        "at_risk": 495,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 56.8,
+        "survival": 0.691634,
+        "at_risk": 494,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 56.84,
+        "survival": 0.690231,
+        "at_risk": 493,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 57.0,
+        "survival": 0.688828,
+        "at_risk": 492,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 57.33,
+        "survival": 0.688828,
+        "at_risk": 491,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 57.46,
+        "survival": 0.688828,
+        "at_risk": 490,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 57.53,
+        "survival": 0.688828,
+        "at_risk": 489,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 57.59,
+        "survival": 0.688828,
+        "at_risk": 488,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 57.89,
+        "survival": 0.688828,
+        "at_risk": 487,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 57.95,
+        "survival": 0.685993,
+        "at_risk": 486,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 57.99,
+        "survival": 0.684576,
+        "at_risk": 484,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 58.02,
+        "survival": 0.683159,
+        "at_risk": 483,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 58.25,
+        "survival": 0.683159,
+        "at_risk": 482,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 58.97,
+        "survival": 0.680318,
+        "at_risk": 481,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 59.96,
+        "survival": 0.680318,
+        "at_risk": 479,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 59.99,
+        "survival": 0.674625,
+        "at_risk": 478,
+        "events": 4,
+        "censored": 0
+      },
+      {
+        "month": 60.02,
+        "survival": 0.673202,
+        "at_risk": 474,
+        "events": 1,
+        "censored": 2
+      },
+      {
+        "month": 60.48,
+        "survival": 0.673202,
+        "at_risk": 471,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 60.68,
+        "survival": 0.673202,
+        "at_risk": 470,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 60.91,
+        "survival": 0.671766,
+        "at_risk": 469,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 60.94,
+        "survival": 0.671766,
+        "at_risk": 467,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 60.98,
+        "survival": 0.670325,
+        "at_risk": 466,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 61.01,
+        "survival": 0.668883,
+        "at_risk": 465,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 61.11,
+        "survival": 0.667439,
+        "at_risk": 463,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 61.4,
+        "survival": 0.665994,
+        "at_risk": 462,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 61.7,
+        "survival": 0.665994,
+        "at_risk": 461,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 61.96,
+        "survival": 0.664546,
+        "at_risk": 460,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 62.26,
+        "survival": 0.663098,
+        "at_risk": 459,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 62.55,
+        "survival": 0.663098,
+        "at_risk": 458,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 62.92,
+        "survival": 0.663098,
+        "at_risk": 457,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 63.01,
+        "survival": 0.66019,
+        "at_risk": 456,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 63.05,
+        "survival": 0.66019,
+        "at_risk": 454,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 63.41,
+        "survival": 0.66019,
+        "at_risk": 452,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 63.44,
+        "survival": 0.658726,
+        "at_risk": 451,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 63.77,
+        "survival": 0.658726,
+        "at_risk": 450,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 63.97,
+        "survival": 0.657256,
+        "at_risk": 448,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 64.0,
+        "survival": 0.655785,
+        "at_risk": 447,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 64.03,
+        "survival": 0.654315,
+        "at_risk": 446,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 64.16,
+        "survival": 0.654315,
+        "at_risk": 445,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 64.39,
+        "survival": 0.652841,
+        "at_risk": 444,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 64.43,
+        "survival": 0.651368,
+        "at_risk": 443,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 64.53,
+        "survival": 0.649894,
+        "at_risk": 442,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 64.92,
+        "survival": 0.649894,
+        "at_risk": 441,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 64.99,
+        "survival": 0.646933,
+        "at_risk": 439,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 65.05,
+        "survival": 0.645453,
+        "at_risk": 437,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 65.28,
+        "survival": 0.645453,
+        "at_risk": 436,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 65.64,
+        "survival": 0.645453,
+        "at_risk": 435,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 65.71,
+        "survival": 0.643966,
+        "at_risk": 434,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 65.94,
+        "survival": 0.643966,
+        "at_risk": 433,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 65.97,
+        "survival": 0.642475,
+        "at_risk": 432,
+        "events": 1,
+        "censored": 2
+      },
+      {
+        "month": 66.0,
+        "survival": 0.63948,
+        "at_risk": 429,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 66.04,
+        "survival": 0.637982,
+        "at_risk": 427,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 66.33,
+        "survival": 0.637982,
+        "at_risk": 426,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 66.96,
+        "survival": 0.636481,
+        "at_risk": 425,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 67.02,
+        "survival": 0.633472,
+        "at_risk": 423,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 67.38,
+        "survival": 0.631967,
+        "at_risk": 421,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 67.58,
+        "survival": 0.631967,
+        "at_risk": 419,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 67.71,
+        "survival": 0.631967,
+        "at_risk": 418,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 67.84,
+        "survival": 0.631967,
+        "at_risk": 417,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 67.91,
+        "survival": 0.630448,
+        "at_risk": 416,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 67.94,
+        "survival": 0.630448,
+        "at_risk": 415,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 68.01,
+        "survival": 0.627402,
+        "at_risk": 414,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 68.34,
+        "survival": 0.625879,
+        "at_risk": 412,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 68.37,
+        "survival": 0.624357,
+        "at_risk": 411,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 68.6,
+        "survival": 0.622834,
+        "at_risk": 410,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 68.8,
+        "survival": 0.619788,
+        "at_risk": 409,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 68.83,
+        "survival": 0.619788,
+        "at_risk": 407,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 68.93,
+        "survival": 0.618261,
+        "at_risk": 406,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 69.09,
+        "survival": 0.616735,
+        "at_risk": 405,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 69.49,
+        "survival": 0.616735,
+        "at_risk": 404,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 69.59,
+        "survival": 0.615205,
+        "at_risk": 403,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 69.68,
+        "survival": 0.613674,
+        "at_risk": 402,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 69.72,
+        "survival": 0.613674,
+        "at_risk": 401,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 69.75,
+        "survival": 0.61214,
+        "at_risk": 400,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 69.88,
+        "survival": 0.610606,
+        "at_risk": 399,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 69.95,
+        "survival": 0.609072,
+        "at_risk": 398,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 69.98,
+        "survival": 0.607537,
+        "at_risk": 397,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 70.01,
+        "survival": 0.604469,
+        "at_risk": 396,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 70.11,
+        "survival": 0.602935,
+        "at_risk": 394,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 70.41,
+        "survival": 0.601401,
+        "at_risk": 393,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 70.74,
+        "survival": 0.599867,
+        "at_risk": 392,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 70.8,
+        "survival": 0.599867,
+        "at_risk": 391,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 70.97,
+        "survival": 0.595252,
+        "at_risk": 390,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 71.29,
+        "survival": 0.592176,
+        "at_risk": 387,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 71.82,
+        "survival": 0.592176,
+        "at_risk": 385,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 71.89,
+        "survival": 0.592176,
+        "at_risk": 384,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 71.98,
+        "survival": 0.59063,
+        "at_risk": 383,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 72.02,
+        "survival": 0.585991,
+        "at_risk": 382,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 72.31,
+        "survival": 0.585991,
+        "at_risk": 379,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 72.34,
+        "survival": 0.584441,
+        "at_risk": 378,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 72.38,
+        "survival": 0.584441,
+        "at_risk": 377,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 72.51,
+        "survival": 0.584441,
+        "at_risk": 376,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 72.87,
+        "survival": 0.584441,
+        "at_risk": 375,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 73.0,
+        "survival": 0.582878,
+        "at_risk": 374,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 73.1,
+        "survival": 0.582878,
+        "at_risk": 373,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 73.2,
+        "survival": 0.581312,
+        "at_risk": 372,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 73.26,
+        "survival": 0.581312,
+        "at_risk": 371,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 73.79,
+        "survival": 0.57974,
+        "at_risk": 370,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 73.92,
+        "survival": 0.578169,
+        "at_risk": 369,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 73.99,
+        "survival": 0.576598,
+        "at_risk": 368,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 74.02,
+        "survival": 0.573456,
+        "at_risk": 367,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 74.12,
+        "survival": 0.573456,
+        "at_risk": 365,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 74.28,
+        "survival": 0.571881,
+        "at_risk": 364,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 74.35,
+        "survival": 0.570305,
+        "at_risk": 363,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 74.91,
+        "survival": 0.570305,
+        "at_risk": 362,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 75.01,
+        "survival": 0.568725,
+        "at_risk": 361,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 75.93,
+        "survival": 0.568725,
+        "at_risk": 360,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 75.99,
+        "survival": 0.567141,
+        "at_risk": 359,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 76.02,
+        "survival": 0.565557,
+        "at_risk": 358,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 76.06,
+        "survival": 0.563973,
+        "at_risk": 357,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 76.12,
+        "survival": 0.562389,
+        "at_risk": 356,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 76.32,
+        "survival": 0.560804,
+        "at_risk": 355,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 76.35,
+        "survival": 0.55922,
+        "at_risk": 354,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 76.42,
+        "survival": 0.55922,
+        "at_risk": 353,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 76.45,
+        "survival": 0.557631,
+        "at_risk": 352,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 76.88,
+        "survival": 0.557631,
+        "at_risk": 351,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 76.98,
+        "survival": 0.556038,
+        "at_risk": 350,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 77.04,
+        "survival": 0.554445,
+        "at_risk": 349,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 77.31,
+        "survival": 0.552852,
+        "at_risk": 348,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 77.7,
+        "survival": 0.551259,
+        "at_risk": 347,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 77.86,
+        "survival": 0.549665,
+        "at_risk": 346,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 77.9,
+        "survival": 0.549665,
+        "at_risk": 345,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 77.93,
+        "survival": 0.54647,
+        "at_risk": 344,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 77.96,
+        "survival": 0.543274,
+        "at_risk": 342,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 78.06,
+        "survival": 0.541676,
+        "at_risk": 340,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 78.39,
+        "survival": 0.541676,
+        "at_risk": 339,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 78.85,
+        "survival": 0.540073,
+        "at_risk": 338,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 78.92,
+        "survival": 0.538471,
+        "at_risk": 337,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 79.05,
+        "survival": 0.536868,
+        "at_risk": 336,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 79.18,
+        "survival": 0.535266,
+        "at_risk": 335,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 79.38,
+        "survival": 0.533663,
+        "at_risk": 334,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 79.44,
+        "survival": 0.53206,
+        "at_risk": 333,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 79.47,
+        "survival": 0.530458,
+        "at_risk": 332,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 79.67,
+        "survival": 0.528855,
+        "at_risk": 331,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 80.43,
+        "survival": 0.527253,
+        "at_risk": 330,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 80.49,
+        "survival": 0.52565,
+        "at_risk": 329,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 80.95,
+        "survival": 0.524047,
+        "at_risk": 328,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 81.05,
+        "survival": 0.520842,
+        "at_risk": 327,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 81.28,
+        "survival": 0.51924,
+        "at_risk": 325,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 81.84,
+        "survival": 0.517637,
+        "at_risk": 324,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 81.97,
+        "survival": 0.514432,
+        "at_risk": 323,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 82.0,
+        "survival": 0.512829,
+        "at_risk": 321,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 82.17,
+        "survival": 0.512829,
+        "at_risk": 320,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 82.2,
+        "survival": 0.512829,
+        "at_risk": 319,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 82.3,
+        "survival": 0.511217,
+        "at_risk": 318,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 82.43,
+        "survival": 0.511217,
+        "at_risk": 317,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 82.53,
+        "survival": 0.509599,
+        "at_risk": 316,
+        "events": 1,
+        "censored": 1
+      },
+      {
+        "month": 82.96,
+        "survival": 0.509599,
+        "at_risk": 314,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 83.42,
+        "survival": 0.509599,
+        "at_risk": 313,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 83.45,
+        "survival": 0.509599,
+        "at_risk": 312,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 83.78,
+        "survival": 0.50796,
+        "at_risk": 311,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 83.91,
+        "survival": 0.506322,
+        "at_risk": 310,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 83.98,
+        "survival": 0.501406,
+        "at_risk": 309,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 84.47,
+        "survival": 0.499767,
+        "at_risk": 306,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 84.63,
+        "survival": 0.498129,
+        "at_risk": 305,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 85.13,
+        "survival": 0.49649,
+        "at_risk": 304,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 85.32,
+        "survival": 0.49649,
+        "at_risk": 303,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 85.42,
+        "survival": 0.49649,
+        "at_risk": 302,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 85.52,
+        "survival": 0.494841,
+        "at_risk": 301,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 85.75,
+        "survival": 0.494841,
+        "at_risk": 300,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 85.85,
+        "survival": 0.494841,
+        "at_risk": 299,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 85.95,
+        "survival": 0.49318,
+        "at_risk": 298,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 85.98,
+        "survival": 0.49152,
+        "at_risk": 297,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 86.01,
+        "survival": 0.489859,
+        "at_risk": 296,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 86.47,
+        "survival": 0.489859,
+        "at_risk": 295,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 86.77,
+        "survival": 0.488193,
+        "at_risk": 294,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 86.8,
+        "survival": 0.488193,
+        "at_risk": 293,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 86.97,
+        "survival": 0.486521,
+        "at_risk": 292,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 87.0,
+        "survival": 0.486521,
+        "at_risk": 291,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 87.03,
+        "survival": 0.483166,
+        "at_risk": 290,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 88.02,
+        "survival": 0.481488,
+        "at_risk": 288,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 88.57,
+        "survival": 0.47981,
+        "at_risk": 287,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 88.87,
+        "survival": 0.478133,
+        "at_risk": 286,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 88.97,
+        "survival": 0.476455,
+        "at_risk": 285,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 89.0,
+        "survival": 0.476455,
+        "at_risk": 284,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 89.03,
+        "survival": 0.473088,
+        "at_risk": 283,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 89.3,
+        "survival": 0.471404,
+        "at_risk": 281,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 89.46,
+        "survival": 0.469721,
+        "at_risk": 280,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 89.56,
+        "survival": 0.466354,
+        "at_risk": 279,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 89.72,
+        "survival": 0.46467,
+        "at_risk": 277,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 90.22,
+        "survival": 0.46467,
+        "at_risk": 276,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 90.68,
+        "survival": 0.46298,
+        "at_risk": 275,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 90.94,
+        "survival": 0.461291,
+        "at_risk": 274,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 91.73,
+        "survival": 0.459601,
+        "at_risk": 273,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 92.52,
+        "survival": 0.459601,
+        "at_risk": 272,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 92.98,
+        "survival": 0.457899,
+        "at_risk": 270,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 93.04,
+        "survival": 0.456196,
+        "at_risk": 269,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 93.8,
+        "survival": 0.456196,
+        "at_risk": 268,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 94.0,
+        "survival": 0.454488,
+        "at_risk": 267,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 94.06,
+        "survival": 0.452779,
+        "at_risk": 266,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 94.32,
+        "survival": 0.452779,
+        "at_risk": 265,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 94.46,
+        "survival": 0.452779,
+        "at_risk": 264,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 94.49,
+        "survival": 0.452779,
+        "at_risk": 263,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 94.55,
+        "survival": 0.452779,
+        "at_risk": 262,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 94.65,
+        "survival": 0.451038,
+        "at_risk": 260,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 94.72,
+        "survival": 0.449296,
+        "at_risk": 259,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 94.75,
+        "survival": 0.447555,
+        "at_risk": 258,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 94.92,
+        "survival": 0.447555,
+        "at_risk": 257,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 94.98,
+        "survival": 0.4458,
+        "at_risk": 255,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 95.08,
+        "survival": 0.444045,
+        "at_risk": 254,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 95.21,
+        "survival": 0.442289,
+        "at_risk": 253,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 95.41,
+        "survival": 0.440534,
+        "at_risk": 252,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 95.57,
+        "survival": 0.440534,
+        "at_risk": 251,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 95.9,
+        "survival": 0.440534,
+        "at_risk": 250,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 96.0,
+        "survival": 0.438765,
+        "at_risk": 249,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 96.1,
+        "survival": 0.436996,
+        "at_risk": 248,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 96.13,
+        "survival": 0.436996,
+        "at_risk": 247,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 96.69,
+        "survival": 0.436996,
+        "at_risk": 246,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 96.92,
+        "survival": 0.436996,
+        "at_risk": 245,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 97.05,
+        "survival": 0.436996,
+        "at_risk": 244,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 97.94,
+        "survival": 0.436996,
+        "at_risk": 243,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 98.0,
+        "survival": 0.43519,
+        "at_risk": 242,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 98.66,
+        "survival": 0.43519,
+        "at_risk": 241,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 98.69,
+        "survival": 0.433377,
+        "at_risk": 240,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 98.83,
+        "survival": 0.431564,
+        "at_risk": 239,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 98.89,
+        "survival": 0.42975,
+        "at_risk": 238,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 99.02,
+        "survival": 0.427937,
+        "at_risk": 237,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 99.09,
+        "survival": 0.426124,
+        "at_risk": 236,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 99.12,
+        "survival": 0.42431,
+        "at_risk": 235,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 99.45,
+        "survival": 0.42431,
+        "at_risk": 234,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 99.52,
+        "survival": 0.422489,
+        "at_risk": 233,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 99.91,
+        "survival": 0.422489,
+        "at_risk": 232,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 99.94,
+        "survival": 0.42066,
+        "at_risk": 231,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 99.98,
+        "survival": 0.418831,
+        "at_risk": 230,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 100.01,
+        "survival": 0.415174,
+        "at_risk": 229,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 100.57,
+        "survival": 0.411516,
+        "at_risk": 227,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 100.63,
+        "survival": 0.411516,
+        "at_risk": 225,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 100.86,
+        "survival": 0.409678,
+        "at_risk": 224,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 102.11,
+        "survival": 0.409678,
+        "at_risk": 223,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 102.24,
+        "survival": 0.407833,
+        "at_risk": 222,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 102.57,
+        "survival": 0.407833,
+        "at_risk": 221,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 103.2,
+        "survival": 0.405979,
+        "at_risk": 220,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 103.69,
+        "survival": 0.405979,
+        "at_risk": 219,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 103.95,
+        "survival": 0.405979,
+        "at_risk": 218,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 104.02,
+        "survival": 0.404108,
+        "at_risk": 217,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 104.28,
+        "survival": 0.402238,
+        "at_risk": 216,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 104.61,
+        "survival": 0.402238,
+        "at_risk": 215,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 104.87,
+        "survival": 0.402238,
+        "at_risk": 214,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 105.03,
+        "survival": 0.400349,
+        "at_risk": 213,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 105.07,
+        "survival": 0.400349,
+        "at_risk": 212,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 105.13,
+        "survival": 0.400349,
+        "at_risk": 211,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 105.63,
+        "survival": 0.398443,
+        "at_risk": 210,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 105.99,
+        "survival": 0.398443,
+        "at_risk": 209,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 106.35,
+        "survival": 0.398443,
+        "at_risk": 208,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 106.71,
+        "survival": 0.398443,
+        "at_risk": 207,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 107.63,
+        "survival": 0.396509,
+        "at_risk": 206,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 108.09,
+        "survival": 0.396509,
+        "at_risk": 205,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 108.94,
+        "survival": 0.396509,
+        "at_risk": 204,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 109.04,
+        "survival": 0.394555,
+        "at_risk": 203,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 109.4,
+        "survival": 0.392602,
+        "at_risk": 202,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 109.67,
+        "survival": 0.392602,
+        "at_risk": 201,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 109.86,
+        "survival": 0.390639,
+        "at_risk": 200,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 109.96,
+        "survival": 0.388676,
+        "at_risk": 199,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 110.03,
+        "survival": 0.386713,
+        "at_risk": 198,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 110.92,
+        "survival": 0.386713,
+        "at_risk": 197,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 111.01,
+        "survival": 0.382767,
+        "at_risk": 196,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 111.08,
+        "survival": 0.382767,
+        "at_risk": 194,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 111.24,
+        "survival": 0.3788,
+        "at_risk": 193,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 111.38,
+        "survival": 0.3788,
+        "at_risk": 191,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 111.44,
+        "survival": 0.376807,
+        "at_risk": 190,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 111.93,
+        "survival": 0.376807,
+        "at_risk": 189,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 112.0,
+        "survival": 0.374802,
+        "at_risk": 188,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 112.13,
+        "survival": 0.372798,
+        "at_risk": 187,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 112.62,
+        "survival": 0.370794,
+        "at_risk": 186,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 113.97,
+        "survival": 0.36879,
+        "at_risk": 185,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 114.79,
+        "survival": 0.36879,
+        "at_risk": 184,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 114.96,
+        "survival": 0.362744,
+        "at_risk": 183,
+        "events": 3,
+        "censored": 0
+      },
+      {
+        "month": 115.06,
+        "survival": 0.360729,
+        "at_risk": 180,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 115.32,
+        "survival": 0.360729,
+        "at_risk": 179,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 115.55,
+        "survival": 0.358702,
+        "at_risk": 178,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 116.83,
+        "survival": 0.358702,
+        "at_risk": 177,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 117.59,
+        "survival": 0.356664,
+        "at_risk": 176,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 117.98,
+        "survival": 0.354626,
+        "at_risk": 175,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 118.05,
+        "survival": 0.352588,
+        "at_risk": 174,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 118.41,
+        "survival": 0.352588,
+        "at_risk": 173,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 118.44,
+        "survival": 0.352588,
+        "at_risk": 172,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 118.64,
+        "survival": 0.352588,
+        "at_risk": 171,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 118.7,
+        "survival": 0.352588,
+        "at_risk": 170,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 118.9,
+        "survival": 0.350501,
+        "at_risk": 169,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 119.16,
+        "survival": 0.350501,
+        "at_risk": 168,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 119.43,
+        "survival": 0.350501,
+        "at_risk": 167,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 120.44,
+        "survival": 0.350501,
+        "at_risk": 165,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 120.94,
+        "survival": 0.350501,
+        "at_risk": 163,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 120.97,
+        "survival": 0.348338,
+        "at_risk": 162,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 121.0,
+        "survival": 0.344011,
+        "at_risk": 161,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 121.03,
+        "survival": 0.341847,
+        "at_risk": 159,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 121.23,
+        "survival": 0.339684,
+        "at_risk": 158,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 121.43,
+        "survival": 0.339684,
+        "at_risk": 157,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 122.45,
+        "survival": 0.339684,
+        "at_risk": 156,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 122.91,
+        "survival": 0.339684,
+        "at_risk": 155,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 123.47,
+        "survival": 0.339684,
+        "at_risk": 154,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 123.99,
+        "survival": 0.337463,
+        "at_risk": 153,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 124.42,
+        "survival": 0.333023,
+        "at_risk": 152,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 124.45,
+        "survival": 0.333023,
+        "at_risk": 150,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 124.98,
+        "survival": 0.330788,
+        "at_risk": 149,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 125.01,
+        "survival": 0.328553,
+        "at_risk": 148,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 126.0,
+        "survival": 0.326318,
+        "at_risk": 147,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 127.47,
+        "survival": 0.326318,
+        "at_risk": 146,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 128.26,
+        "survival": 0.324067,
+        "at_risk": 145,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 128.46,
+        "survival": 0.324067,
+        "at_risk": 144,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 129.02,
+        "survival": 0.321801,
+        "at_risk": 143,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 129.45,
+        "survival": 0.321801,
+        "at_risk": 142,
+        "events": 0,
+        "censored": 3
+      },
+      {
+        "month": 129.97,
+        "survival": 0.319486,
+        "at_risk": 139,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 131.19,
+        "survival": 0.319486,
+        "at_risk": 138,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 131.45,
+        "survival": 0.319486,
+        "at_risk": 137,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 131.58,
+        "survival": 0.317137,
+        "at_risk": 136,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 131.65,
+        "survival": 0.314788,
+        "at_risk": 135,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 131.68,
+        "survival": 0.314788,
+        "at_risk": 134,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 133.03,
+        "survival": 0.310054,
+        "at_risk": 133,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 133.45,
+        "survival": 0.310054,
+        "at_risk": 131,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 133.91,
+        "survival": 0.310054,
+        "at_risk": 130,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 134.01,
+        "survival": 0.307651,
+        "at_risk": 129,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 134.54,
+        "survival": 0.305247,
+        "at_risk": 128,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 135.49,
+        "survival": 0.305247,
+        "at_risk": 127,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 136.02,
+        "survival": 0.302825,
+        "at_risk": 126,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 137.49,
+        "survival": 0.302825,
+        "at_risk": 125,
+        "events": 0,
+        "censored": 3
+      },
+      {
+        "month": 138.48,
+        "survival": 0.302825,
+        "at_risk": 122,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 138.97,
+        "survival": 0.300301,
+        "at_risk": 120,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 139.5,
+        "survival": 0.300301,
+        "at_risk": 119,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 139.7,
+        "survival": 0.297756,
+        "at_risk": 118,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 139.99,
+        "survival": 0.292666,
+        "at_risk": 117,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 140.55,
+        "survival": 0.292666,
+        "at_risk": 115,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 141.44,
+        "survival": 0.292666,
+        "at_risk": 114,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 141.9,
+        "survival": 0.292666,
+        "at_risk": 112,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 142.46,
+        "survival": 0.292666,
+        "at_risk": 111,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 143.08,
+        "survival": 0.292666,
+        "at_risk": 110,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 143.28,
+        "survival": 0.289981,
+        "at_risk": 109,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 143.97,
+        "survival": 0.289981,
+        "at_risk": 108,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 144.0,
+        "survival": 0.284561,
+        "at_risk": 107,
+        "events": 2,
+        "censored": 0
+      },
+      {
+        "month": 144.46,
+        "survival": 0.284561,
+        "at_risk": 105,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 144.92,
+        "survival": 0.281825,
+        "at_risk": 104,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 146.0,
+        "survival": 0.279089,
+        "at_risk": 103,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 147.75,
+        "survival": 0.276352,
+        "at_risk": 102,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 148.47,
+        "survival": 0.276352,
+        "at_risk": 101,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 148.83,
+        "survival": 0.273589,
+        "at_risk": 100,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 149.49,
+        "survival": 0.273589,
+        "at_risk": 99,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 150.47,
+        "survival": 0.273589,
+        "at_risk": 98,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 151.49,
+        "survival": 0.273589,
+        "at_risk": 97,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 152.05,
+        "survival": 0.273589,
+        "at_risk": 95,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 152.41,
+        "survival": 0.273589,
+        "at_risk": 94,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 153.43,
+        "survival": 0.273589,
+        "at_risk": 93,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 153.82,
+        "survival": 0.273589,
+        "at_risk": 92,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 153.99,
+        "survival": 0.270582,
+        "at_risk": 91,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 154.74,
+        "survival": 0.270582,
+        "at_risk": 90,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 155.43,
+        "survival": 0.270582,
+        "at_risk": 89,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 155.96,
+        "survival": 0.270582,
+        "at_risk": 88,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 156.45,
+        "survival": 0.270582,
+        "at_risk": 87,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 157.04,
+        "survival": 0.267436,
+        "at_risk": 86,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 157.63,
+        "survival": 0.26429,
+        "at_risk": 85,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 158.09,
+        "survival": 0.26429,
+        "at_risk": 84,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 158.46,
+        "survival": 0.26429,
+        "at_risk": 83,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 158.98,
+        "survival": 0.261067,
+        "at_risk": 82,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 159.01,
+        "survival": 0.257844,
+        "at_risk": 81,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 160.79,
+        "survival": 0.254621,
+        "at_risk": 80,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 163.42,
+        "survival": 0.254621,
+        "at_risk": 79,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 163.48,
+        "survival": 0.254621,
+        "at_risk": 78,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 163.71,
+        "survival": 0.251314,
+        "at_risk": 77,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 165.42,
+        "survival": 0.251314,
+        "at_risk": 76,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 165.49,
+        "survival": 0.251314,
+        "at_risk": 74,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 166.44,
+        "survival": 0.251314,
+        "at_risk": 73,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 169.43,
+        "survival": 0.251314,
+        "at_risk": 71,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 170.45,
+        "survival": 0.251314,
+        "at_risk": 70,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 171.01,
+        "survival": 0.247672,
+        "at_risk": 69,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 171.33,
+        "survival": 0.247672,
+        "at_risk": 68,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 171.4,
+        "survival": 0.243975,
+        "at_risk": 67,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 171.99,
+        "survival": 0.240279,
+        "at_risk": 66,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 172.45,
+        "survival": 0.240279,
+        "at_risk": 65,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 173.04,
+        "survival": 0.236524,
+        "at_risk": 64,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 173.47,
+        "survival": 0.236524,
+        "at_risk": 63,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 174.46,
+        "survival": 0.236524,
+        "at_risk": 62,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 176.43,
+        "survival": 0.236524,
+        "at_risk": 61,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 177.02,
+        "survival": 0.232582,
+        "at_risk": 60,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 177.45,
+        "survival": 0.232582,
+        "at_risk": 59,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 178.99,
+        "survival": 0.228502,
+        "at_risk": 57,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 179.98,
+        "survival": 0.224421,
+        "at_risk": 56,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 180.47,
+        "survival": 0.224421,
+        "at_risk": 55,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 181.45,
+        "survival": 0.224421,
+        "at_risk": 54,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 184.41,
+        "survival": 0.224421,
+        "at_risk": 53,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 184.48,
+        "survival": 0.224421,
+        "at_risk": 52,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 185.03,
+        "survival": 0.220021,
+        "at_risk": 51,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 186.02,
+        "survival": 0.215621,
+        "at_risk": 50,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 189.14,
+        "survival": 0.215621,
+        "at_risk": 49,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 189.44,
+        "survival": 0.215621,
+        "at_risk": 48,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 190.46,
+        "survival": 0.215621,
+        "at_risk": 47,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 192.0,
+        "survival": 0.210933,
+        "at_risk": 46,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 192.46,
+        "survival": 0.210933,
+        "at_risk": 45,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 194.46,
+        "survival": 0.210933,
+        "at_risk": 44,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 197.13,
+        "survival": 0.206028,
+        "at_risk": 43,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 198.47,
+        "survival": 0.206028,
+        "at_risk": 42,
+        "events": 0,
+        "censored": 2
+      },
+      {
+        "month": 200.41,
+        "survival": 0.206028,
+        "at_risk": 40,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 201.43,
+        "survival": 0.206028,
+        "at_risk": 39,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 203.43,
+        "survival": 0.206028,
+        "at_risk": 38,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 207.05,
+        "survival": 0.200459,
+        "at_risk": 37,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 208.46,
+        "survival": 0.200459,
+        "at_risk": 36,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 209.48,
+        "survival": 0.200459,
+        "at_risk": 35,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 209.74,
+        "survival": 0.194564,
+        "at_risk": 34,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 210.46,
+        "survival": 0.194564,
+        "at_risk": 33,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 210.92,
+        "survival": 0.194564,
+        "at_risk": 32,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 215.03,
+        "survival": 0.188287,
+        "at_risk": 31,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 215.43,
+        "survival": 0.188287,
+        "at_risk": 30,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 220.45,
+        "survival": 0.188287,
+        "at_risk": 29,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 222.52,
+        "survival": 0.181563,
+        "at_risk": 28,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 224.43,
+        "survival": 0.181563,
+        "at_risk": 27,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 227.45,
+        "survival": 0.181563,
+        "at_risk": 26,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 233.49,
+        "survival": 0.181563,
+        "at_risk": 25,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 237.44,
+        "survival": 0.181563,
+        "at_risk": 24,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 240.46,
+        "survival": 0.181563,
+        "at_risk": 23,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 248.74,
+        "survival": 0.17331,
+        "at_risk": 22,
+        "events": 1,
+        "censored": 0
+      },
+      {
+        "month": 250.45,
+        "survival": 0.17331,
+        "at_risk": 21,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 252.45,
+        "survival": 0.17331,
+        "at_risk": 20,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 267.47,
+        "survival": 0.17331,
+        "at_risk": 19,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 268.45,
+        "survival": 0.17331,
+        "at_risk": 18,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 271.47,
+        "survival": 0.17331,
+        "at_risk": 17,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 275.45,
+        "survival": 0.17331,
+        "at_risk": 16,
+        "events": 0,
+        "censored": 3
+      },
+      {
+        "month": 278.47,
+        "survival": 0.17331,
+        "at_risk": 13,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 279.49,
+        "survival": 0.17331,
+        "at_risk": 12,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 285.9,
+        "survival": 0.17331,
+        "at_risk": 11,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 289.45,
+        "survival": 0.17331,
+        "at_risk": 10,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 293.49,
+        "survival": 0.17331,
+        "at_risk": 9,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 299.43,
+        "survival": 0.17331,
+        "at_risk": 8,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 310.44,
+        "survival": 0.17331,
+        "at_risk": 7,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 319.47,
+        "survival": 0.17331,
+        "at_risk": 6,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 335.44,
+        "survival": 0.17331,
+        "at_risk": 5,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 343.49,
+        "survival": 0.17331,
+        "at_risk": 4,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 355.48,
+        "survival": 0.17331,
+        "at_risk": 3,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 385.45,
+        "survival": 0.17331,
+        "at_risk": 2,
+        "events": 0,
+        "censored": 1
+      },
+      {
+        "month": 426.48,
+        "survival": 0.17331,
+        "at_risk": 1,
+        "events": 0,
+        "censored": 1
+      }
+    ],
+    "interpretation": "Descriptive duration benchmark with right censoring; not a causal forecast."
+  },
+  "release_status": "development; not approved for clinical or automated decisions"
+}

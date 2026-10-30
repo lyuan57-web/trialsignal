@@ -1,0 +1,57 @@
+{
+  "studies": [
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT00000001",
+          "briefTitle": "A Phase 3 Trial in Non-Small Cell Lung Cancer"
+        },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": {
+            "name": "Example Therapeutics, Inc.",
+            "class": "INDUSTRY"
+          }
+        },
+        "statusModule": {
+          "overallStatus": "RECRUITING",
+          "startDateStruct": {"date": "2025-01-15"},
+          "primaryCompletionDateStruct": {"date": "2027-06", "type": "ESTIMATED"},
+          "completionDateStruct": {"date": "2027-12", "type": "ESTIMATED"}
+        },
+        "designModule": {
+          "studyType": "INTERVENTIONAL",
+          "phases": ["PHASE3"],
+          "designInfo": {
+            "allocation": "RANDOMIZED",
+            "interventionModel": "PARALLEL",
+            "primaryPurpose": "TREATMENT",
+            "maskingInfo": {"masking": "DOUBLE"}
+          },
+          "enrollmentInfo": {"count": 480, "type": "ESTIMATED"}
+        },
+        "eligibilityModule": {
+          "sex": "ALL",
+          "minimumAge": "18 Years",
+          "maximumAge": "80 Years",
+          "healthyVolunteers": false
+        },
+        "conditionsModule": {
+          "conditions": ["Non-Small Cell Lung Cancer"]
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {"type": "DRUG", "name": "Examplemab"}
+          ]
+        },
+        "contactsLocationsModule": {
+          "locations": [
+            {"facility": "Example Hospital", "country": "United States"},
+            {"facility": "Example Cancer Centre", "country": "Canada"}
+          ]
+        }
+      }
+    }
+  ],
+  "totalCount": 1
+}
+
