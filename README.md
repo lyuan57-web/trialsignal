@@ -31,7 +31,7 @@ patient data.
 - competitive-landscape queries and evidence-based comparable-trial retrieval;
 - leakage-aware logistic risk benchmark with a chronological holdout;
 - Kaplan-Meier duration benchmarks that preserve right-censored ongoing trials;
-- FastAPI, interactive web surface, Docker configuration, and CI.
+- FastAPI, interactive web surface, Docker configuration, and an automated test suite.
 
 The current multi-indication development extraction is not the final portfolio cohort. Remaining
 release gates are tracked in [the delivery roadmap](docs/roadmap.md).

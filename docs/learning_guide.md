@@ -46,7 +46,7 @@ Add one filtered endpoint with input validation and a test.
 
 ## Unit 9 — Deployment and reliability
 
-Build the container, inspect its health check, and follow CI from linting to tests. Explain
+Build the container, inspect its health check, and run the linting and test commands. Explain
 which artifacts remain outside the public repository and how the database is recreated.
 
 ## Interview readiness test

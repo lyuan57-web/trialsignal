@@ -13,7 +13,7 @@
 - [x] Leakage-aware temporal risk baseline
 - [x] Kaplan-Meier duration benchmark with right censoring
 - [x] FastAPI endpoints and interactive web surface
-- [x] Container, health check, linting, tests, and CI configuration
+- [x] Container, health check, linting, and automated tests
 - [x] Product, architecture, data, model, and learning documentation
 
 ## Required before portfolio release
